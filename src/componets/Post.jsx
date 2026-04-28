@@ -2,12 +2,11 @@
 import styles from "./Post.module.css"
 import { useState } from "react";
 
-function Post({name, Content="no content provided"})
+function Post({name, content="no content provided",onEdit})
 {
     
-    const [postContent, setPostContent] = useState(Content);
-  
-    const [editableContent, setEditableContent] = useState(Content);
+    
+    const [editableContent, setEditableContent] = useState(content);
     const [isEditing, setIsEditing] = useState(false);
     
     const handleContentChange = (event) => {
@@ -16,14 +15,17 @@ function Post({name, Content="no content provided"})
     
     
     const handleEditClick = () => { setIsEditing(true);}
-    const handleSaveClick = () => { setPostContent(editableContent); setIsEditing(false);}  
-    const handleCancelClick = () => { setIsEditing(false);setEditableContent(postContent);}
 
+    const handleSaveClick = () => { onEdit(editableContent); setIsEditing(false);}  
+    
+    const handleCancelClick = () => { setIsEditing(false);setEditableContent(content);}
+
+    const editButton= (<button className={styles.button} onClick={handleEditClick}>Edit</button>)
     
       return(
         <div className={styles.container}>
             <h2 className={styles.name}>{name}</h2>
-            <p className={styles.content}>{postContent}</p>
+            <p className={styles.content}>{editableContent}</p>
 
             {!isEditing && (
                    

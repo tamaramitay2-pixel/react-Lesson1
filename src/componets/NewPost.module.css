@@ -1,0 +1,102 @@
+/* הרקע המעומעם מאחורי המודאל */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* כהות עדינה */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+/* הכרטיס הלבן המרכזי */
+.modal-card {
+  background: #ffffff;
+  width: 460px;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+/* עיצוב השדות */
+.form-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* מבטיח שהפדינג לא ירחיב את השדה */
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: #3b82f6; /* כחול מודרני במיקוד */
+  outline: none;
+}
+
+.form-textarea {
+  height: 110px;
+  resize: none; /* מבטל את האפשרות להגדיל את השדה ידנית */
+}
+
+/* אזור הכפתורים */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.btn-create {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-create:hover {
+  background-color: #2563eb;
+}
+
+.btn-cancel {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.btn-cancel:hover {
+  background-color: #d1d5db;
+}

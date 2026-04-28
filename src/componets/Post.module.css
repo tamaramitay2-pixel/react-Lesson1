@@ -6,7 +6,7 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background-color: #f9daef;
+    background-color: #20d8f019;
     border-radius: 10px;
     margin: 20px;
 }   
@@ -36,7 +36,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    background-color: aqua;
+    background-color: rgb(90, 135, 239);
 }
 .saveButton {
     background-color: #4CAF50;

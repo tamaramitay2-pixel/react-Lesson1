@@ -182,3 +182,31 @@
     border-right-color: var(--border);
   }
 }
+
+/* הקונטיינר ששומר עליהם בשורה אחת למעלה */
+.top-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* עיצוב זהה לשני הכפתורים */
+.buttonLogPost, .buttonNewPost {
+    background-color: #4e95eb; /* הצבע הטורקיז מהעיצוב שלך */
+    color: #000;              /* טקסט שחור */
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid #000;   /* מסגרת דקה */
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+/* אפקט מעבר עכבר לשניהם */
+.buttonLogPost:hover, .buttonNewPost:hover {
+    background-color: #00e6c0; /* גוון מעט כהה יותר ב-Hover */
+    transform: translateY(-1px); /* הרמה קלה של הכפתור למראה אינטראקטיבי */
+}
