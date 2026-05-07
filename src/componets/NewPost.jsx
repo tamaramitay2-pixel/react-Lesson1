@@ -2,15 +2,22 @@ import { useState } from "react";
 
 import styles from "./NewPost.module.css"
 
-function NewPost ({onCancel})  {
-
+function NewPost ({closeDialog , onAdd}) { 
   const [authorName, setAuthorName] = useState("");
   const [postContent, setPostContent] = useState("");
-
-  
+ 
+  const handleSubmit = () => {
+    event.preventDefault();
+    if (authorName && postContent) {
+      onAdd(authorName, postContent);
+      setAuthorName("");
+      setPostContent("");
+      closeDialog();
+    }
+  };
 
   return (
-    <div className={styles["modal-overlay"]}>
+    <form className={styles["modal-overlay"]} onsubmit={handleSubmit}>
       <div className={styles["modal-card"]}>
         <h2 className={styles["modal-title"]}>Add New Post</h2>
         
@@ -32,16 +39,18 @@ function NewPost ({onCancel})  {
           <textarea 
             className={styles["form-textarea"]}      
             placeholder="Enter post content"
+            value={postContent}
+            onChange={(e) => setPostContent(e.target.value)}
           ></textarea>
         </div>
 
         {/* כפתורי הפעולה */}
         <div className={styles["button-group"]}>
-          <button className={styles["btn"]} className={styles["btn-create"]}   >Create Post</button>
-          <button className={styles["btn"]} className={styles["btn-cancel"]}  onClick={onCancel}  >Cancel</button>
+          <button className={styles["btn"]} className={styles["btn-create"]} onClick={handleSubmit} >Create Post</button>
+          <button className={styles["btn"]} className={styles["btn-cancel"]}  onClick={closeDialog}  >Cancel</button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 export default NewPost

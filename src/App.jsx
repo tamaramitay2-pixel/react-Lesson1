@@ -24,6 +24,10 @@ function App() {
     });
 
   }
+  const handleAddPost = (name, content) => {
+    setPosts((prevPosts) => [...prevPosts, { name, content }]);
+    setIsFormOpen(false);
+  }
   const handleLogPost = () => {
     console.log("Current Posts:", posts);}
 
@@ -31,7 +35,7 @@ function App() {
     setIsFormOpen(true);
   };
 
-  const handlecancelForm = () => {
+  const handleCloseForm = () => {
     setIsFormOpen(false);
   } 
 
@@ -51,12 +55,9 @@ function App() {
      {isFormOpen && 
      <>
     
-       <div className="overlay" >
-        <NewPost onCancel={handlecancelForm} /> 
-      </div> 
-     
-     
-    
+       <div className="overlay" onClick={handleCloseForm} />
+       <NewPost closeDialog={handleCloseForm} onAdd={handleAddPost}  /> 
+      
      </>
      }
      
